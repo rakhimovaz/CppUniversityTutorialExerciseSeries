@@ -30,7 +30,7 @@ Welcome to the C++ exercises repository! This guide will help you get started wi
 4. **Commit Your Changes**: Once you're satisfied with your solution, commit your changes:
    ```bash
    git add .
-   git commit -m "Completed the swapping exercise"
+   git commit -m "Completed the Get Started exercise"
    ```
 
 5. **Push to GitHub**: Push your changes to your personal repository on GitHub:
