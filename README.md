@@ -21,7 +21,7 @@ Welcome to the C++ exercises repository! This guide will help you get started wi
 
 ## Working on Assignments
 
-1. **Open the Exercise File**: For example, open the `hello.cpp` file to work on the swapping exercise.
+1. **Open the Exercise File**: For example, open the `hello.cpp` file to work on the exercise. 
 
 2. **Implement the Function**: Follow the comments and instructions in the file to complete the exercise. For the `hello.cpp` exercise, you'll need to implement the `HelloWorld` function to return the string "Hello, World!". (for now, you shouldn't worry about for the first getting started exercise, just run the test and see if it passes, if it does, you're good to go!, you can commit and push your changes to your repository)
 
