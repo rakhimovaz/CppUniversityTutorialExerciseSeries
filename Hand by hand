@@ -1,0 +1,70 @@
+#include <iostream>
+#include <queue>
+#include <vector>
+using namespace std;
+class Person {
+private:
+    char name;
+    string state;
+public:
+    Person() {
+        name = ' ';
+        state = "";
+    }
+    void setState(string state) {
+        this->state = state;
+    }
+    string getState() {
+        return state;
+    }
+    void setName(char name) {
+        this->name = name;
+    }
+    char getName() {
+        return name;
+    }
+};
+int main() {
+    int numberOfPeople;
+    cout << "How many people do you want to have reading a book? ";
+    cin >> numberOfPeople;
+    vector<Person> people(numberOfPeople);
+    int i = 0;
+    // Initialize people with names and default state as "standing"
+    for (int j = 0; j < people.size(); j++) {
+        people[j].setName((char)('A' + i++));
+        people[j].setState("standing");
+    }
+    // Queue for cycling states
+    queue<string> stateQueue;
+    stateQueue.push("READING A BOOK");
+    stateQueue.push("standing");
+    stateQueue.push("READING A BOOK");
+    stateQueue.push("standing");
+    stateQueue.push("READING A BOOK");
+    stateQueue.push("READING A BOOK");
+    stateQueue.push("standing");
+    int steps = stateQueue.size() + numberOfPeople - 1;  // Total steps
+    // Loop to change states and print status
+    for (int step = 1; step <= steps; step++) {
+        string currentState;
+        if (!stateQueue.empty()) {
+            currentState = stateQueue.front();
+            stateQueue.pop();
+        }
+        // Update the state of each person
+        for (int i = 0; i < numberOfPeople; i++) {
+            string temp = people[i].getState();
+            people[i].setState(currentState);
+            currentState = temp;
+        }
+        // Push the last person's state into the queue for future cycles
+        stateQueue.push(currentState);
+        // Output the step result
+        cout << "Step: " << step << ": " << endl;
+        for (int i = 0; i < numberOfPeople; i++) {
+            cout << "Person " << people[i].getName() << " is " << people[i].getState() << "  " << endl;
+        }
+        cout << endl;
+    }
+    return 0;
